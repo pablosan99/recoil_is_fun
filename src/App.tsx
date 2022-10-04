@@ -8,6 +8,7 @@ import { Atoms } from './examples/Atoms';
 import { Selectors } from './examples/Selectors';
 import { Async } from './examples/Async';
 import Canvas from './Canvas';
+import Transactions from './examples/Transactions';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/examples/atomEffects" element={<Suspense fallback={<div>Loading...</div>}>
               <AtomEffects/>
             </Suspense>}/>
+            <Route path={"/examples/transactions"} element={<Transactions />}/>
             <Route path={"/examples/app"} element={<Canvas/>}/>
             <Route path={"/"} element={<Atoms/>}/>
           </Routes>
@@ -56,7 +58,7 @@ function Header() {
           <Link to="/examples/atomEffects">Atom effects</Link>
         </Tab>
         <Tab>
-          <Link to="/examples/atomEffects">Transactions</Link>
+          <Link to="/examples/transactions">Transactions</Link>
         </Tab>
         <Tab>
           <Link to="/examples/testing">Testing</Link>
