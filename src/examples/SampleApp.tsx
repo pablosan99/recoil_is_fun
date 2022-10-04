@@ -1,10 +1,10 @@
 import {useRecoilValue, useSetRecoilState} from 'recoil'
-import {Rectangle, selectedElementState} from './components/Rectangle/Rectangle'
-import {EditProperties} from './EditProperties'
-import {PageContainer} from './PageContainer'
-import {elementsState, Toolbar} from './Toolbar'
+import {Rectangle, selectedElementState} from './../components/Rectangle/Rectangle'
+import {EditProperties} from './../EditProperties'
+import {PageContainer} from './../PageContainer'
+import {elementsState, Toolbar} from './../Toolbar'
 
-function Canvas() {
+function SampleApp() {
     const elements = useRecoilValue(elementsState)
     const setSelectedElement = useSetRecoilState(selectedElementState)
 
@@ -23,4 +23,4 @@ function Canvas() {
     )
 }
 
-export default Canvas
+export default SampleApp

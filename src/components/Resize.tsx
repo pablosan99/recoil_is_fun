@@ -1,6 +1,6 @@
-import {Resizable, ResizeHandle} from 'react-resizable'
-import {Handle} from './Handle'
-import {ElementStyle} from './Rectangle/Rectangle'
+import { Resizable, ResizeHandle } from 'react-resizable'
+import { Handle } from './Handle'
+import { ElementStyle } from './Rectangle/Rectangle'
 import { PropsWithChildren } from 'react';
 
 const handlePlacements: ResizeHandle[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw']
@@ -11,7 +11,7 @@ type ResizeProps = {
     lockAspectRatio: boolean
 } & ElementStyle & PropsWithChildren
 
-export const Resize: React.FC<ResizeProps> = ({selected, children, position, size, onResize, lockAspectRatio}) => {
+export const Resize = ({selected, children, position, size, onResize, lockAspectRatio}: ResizeProps) => {
     return (
         <Resizable
             width={size.width}

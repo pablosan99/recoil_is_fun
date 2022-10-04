@@ -7,9 +7,9 @@ import { AtomEffects } from './examples/AtomEffects';
 import { Atoms } from './examples/Atoms';
 import { Selectors } from './examples/Selectors';
 import { Async } from './examples/Async';
-import Canvas from './Canvas';
 import Transactions from './examples/Transactions';
 import Testing from './examples/Testing';
+import SampleApp from './examples/SampleApp';
 
 function Loader() {
   return (
@@ -39,7 +39,7 @@ function App() {
             </Suspense>}/>
             <Route path={"/examples/transactions"} element={<Transactions/>}/>
             <Route path="/examples/testing" element={<Testing/>}/>
-            <Route path={"/examples/app"} element={<Canvas/>}/>
+            <Route path={"/examples/app"} element={<SampleApp/>}/>
             <Route path={"/"} element={<Atoms/>}/>
           </Routes>
         </BrowserRouter>

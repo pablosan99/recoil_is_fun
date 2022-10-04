@@ -7,7 +7,7 @@ type DragProps = {
     onDrag: (position: ElementStyle['position']) => void
 } & PropsWithChildren
 
-export const Drag: React.FC<DragProps> = ({position, onDrag, children}) => {
+export const Drag = ({position, onDrag, children}: DragProps) => {
     return (
         <DraggableCore
             onDrag={(e: any) => {
