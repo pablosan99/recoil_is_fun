@@ -1,7 +1,7 @@
 import React, { Suspense, useState } from 'react';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-import { ChakraProvider, Tab, TabList, Tabs } from '@chakra-ui/react';
+import { ChakraProvider, CircularProgress, Tab, TabList, Tabs } from '@chakra-ui/react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { AtomEffects } from './examples/AtomEffects';
 import { Atoms } from './examples/Atoms';
@@ -9,6 +9,18 @@ import { Selectors } from './examples/Selectors';
 import { Async } from './examples/Async';
 import Canvas from './Canvas';
 import Transactions from './examples/Transactions';
+import Testing from './examples/Testing';
+
+function Loader() {
+  return (
+    <div className="loader-container">
+      <div className="loader">
+        <CircularProgress isIndeterminate color='teal.200' />
+        <div>loading ...</div>
+      </div>
+    </div>
+  )
+}
 
 function App() {
   return (
@@ -17,15 +29,16 @@ function App() {
         <BrowserRouter>
           <Header/>
           <Routes>
-            <Route path="/examples/atoms" element={<Atoms />} />
+            <Route path="/examples/atoms" element={<Atoms/>}/>
             <Route path="/examples/selectors" element={<Selectors/>}/>
-            <Route path="/examples/async" element={<Suspense fallback={<div>Loading...</div>}>
+            <Route path="/examples/async" element={<Suspense fallback={<Loader/>}>
               <Async/>
             </Suspense>}/>
-            <Route path="/examples/atomEffects" element={<Suspense fallback={<div>Loading...</div>}>
+            <Route path="/examples/atomEffects" element={<Suspense fallback={<Loader/>}>
               <AtomEffects/>
             </Suspense>}/>
-            <Route path={"/examples/transactions"} element={<Transactions />}/>
+            <Route path={"/examples/transactions"} element={<Transactions/>}/>
+            <Route path="/examples/testing" element={<Testing/>}/>
             <Route path={"/examples/app"} element={<Canvas/>}/>
             <Route path={"/"} element={<Atoms/>}/>
           </Routes>
@@ -63,9 +76,8 @@ function Header() {
         <Tab>
           <Link to="/examples/testing">Testing</Link>
         </Tab>
-        
         <Tab>
-          <Link to="/examples/app">All</Link>
+          <Link to="/examples/app">App</Link>
         </Tab>
       </TabList>
     </Tabs>

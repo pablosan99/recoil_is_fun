@@ -6,7 +6,15 @@ import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
 import {atomFamily, selectorFamily, useRecoilValue, useSetRecoilState} from 'recoil'
 import {getWeather} from './fakeAPI'
 
-const userState = selectorFamily({
+type UserData = {
+  name: string;
+  phone: string;
+  address: { 
+    city: string;
+  }
+}
+
+const userState = selectorFamily<UserData, number>({
     key: 'user',
     get: (userId: number) => async () => {
         const userData = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`).then((res) => res.json())
@@ -87,8 +95,6 @@ const ErrorFallback = ({error, resetErrorBoundary}: FallbackProps) => {
 
 export const Async = () => {
     const [userId, setUserId] = useState<undefined | number>(undefined)
-
-    console.log('userId', userId)
 
     return (
         <Container py={10}>

@@ -44,16 +44,14 @@ type Props = PropsWithChildren;
 
 function TransactionContainer({ children }: Props) {
   
-  const fillModel = useRecoilTransaction_UNSTABLE(({ set}) => (products: Product[]) => {
+  const fillModel = useRecoilTransaction_UNSTABLE(({ set }) => (products: Product[]) => {
     products.forEach(product => {
       set(productAtom(product.uid), () => product);
     })
   });
   
   useEffect(() => {
-    
     fillModel(mockProducts);
-    
   }, [fillModel])
   
   return (

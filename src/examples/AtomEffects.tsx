@@ -99,7 +99,7 @@ type ContainerProps = {
  onClear: () => void
 } & PropsWithChildren
 
-const Container: React.FC<ContainerProps> = ({children, onClear}: ContainerProps) => {
+const Container = ({children, onClear}: ContainerProps) => {
     return (
         <Box display="flex" flexDir="column" alignItems="center" pt={10}>
             <Box width="400px" backgroundColor="yellow.100" p={5} borderRadius="lg">
