@@ -1,4 +1,4 @@
-import { Resizable, ResizeHandle } from 'react-resizable'
+import { Resizable, ResizeCallbackData, ResizeHandle } from 'react-resizable'
 import { Handle } from './Handle'
 import { ElementStyle } from './Rectangle/Rectangle'
 import { PropsWithChildren } from 'react';
@@ -16,7 +16,9 @@ export const Resize = ({selected, children, position, size, onResize, lockAspect
         <Resizable
             width={size.width}
             height={size.height}
-            onResize={(_, {size: newSize, handle}) => {
+            onResize={(_, {size: newSize, handle}: ResizeCallbackData) => {
+                console.log(newSize, handle)
+              
                 let topDiff = 0
                 if (handle.includes('n')) {
                     topDiff = size.height - newSize.height

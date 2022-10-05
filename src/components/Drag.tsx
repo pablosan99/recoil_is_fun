@@ -1,4 +1,4 @@
-import {DraggableCore} from 'react-draggable'
+import { DraggableCore, DraggableData, DraggableEvent } from 'react-draggable'
 import {ElementStyle} from './Rectangle/Rectangle'
 import { PropsWithChildren } from 'react';
 
@@ -10,10 +10,12 @@ type DragProps = {
 export const Drag = ({position, onDrag, children}: DragProps) => {
     return (
         <DraggableCore
-            onDrag={(e: any) => {
+            onDrag={(e: DraggableEvent,
+                     data: DraggableData) => {
+                console.log(e, data);
                 onDrag({
-                    left: e.movementX + position.left,
-                    top: e.movementY + position.top,
+                    left: data.x + position.left,
+                    top: data.y + position.top,
                 })
             }}
         >

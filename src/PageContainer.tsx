@@ -7,7 +7,12 @@ type PageContainerProps = {
 
 export const PageContainer = ({onClick, children}: PageContainerProps) => {
     return (
-        <Flex direction="column" width="100vw" height="100vh" onClick={onClick}>
+        <Flex direction="column" onClick={onClick} sx={{
+          border: `1px solid red`,
+          margin: `10px`,
+          width: `95%`,
+          height: `590px`
+        }}>
             <Box flex={1} position="relative">
                 {children}
             </Box>
