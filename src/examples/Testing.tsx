@@ -1,7 +1,6 @@
 import { atom, useRecoilState } from 'recoil';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { Image } from '@chakra-ui/react'
 
 export const nameAtom = atom({
   key: 'nameAtom',
@@ -30,7 +29,7 @@ export default function Testing() {
         <Link to="https://recoiljs.org/docs/guides/testing">https://recoiljs.org/docs/guides/testing</Link>
       </Box>
       <Box mt={96}>
-        <iframe src="https://recoiljs.org/docs/guides/testing" width={1700} height={900} />
+        <iframe title="recoil page" src="https://recoiljs.org/docs/guides/testing" width={1700} height={900} />
       </Box>
     </Box>
   )
