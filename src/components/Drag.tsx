@@ -1,25 +1,31 @@
-import { DraggableCore, DraggableData, DraggableEvent } from 'react-draggable'
-import {ElementStyle} from './Rectangle/Rectangle'
-import { PropsWithChildren } from 'react';
+import { DraggableCore, DraggableData, DraggableEvent } from "react-draggable";
+import { ElementStyle } from "./Rectangle/Rectangle";
+import { PropsWithChildren } from "react";
 
 type DragProps = {
-    position: ElementStyle['position']
-    onDrag: (position: ElementStyle['position']) => void
-} & PropsWithChildren
+  position: ElementStyle["position"];
+  onDragFn: (position: ElementStyle["position"]) => void;
+} & PropsWithChildren;
 
-export const Drag = ({position, onDrag, children}: DragProps) => {
-    return (
-        <DraggableCore
-            onDrag={(e: DraggableEvent,
-                     data: DraggableData) => {
-                console.log(e, data);
-                onDrag({
-                    left: data.x + position.left,
-                    top: data.y + position.top,
-                })
-            }}
-        >
-            {children}
-        </DraggableCore>
-    )
-}
+export const Drag = (props: DragProps) => {
+  const { position, onDragFn, children } = props;
+  const handleDragStart = (e: DraggableEvent, data: DraggableData) => {};
+
+  const handleDragStop = (e: DraggableEvent, data: DraggableData) => {};
+
+  return (
+    <DraggableCore
+      onStart={handleDragStart}
+      onStop={handleDragStop}
+      onDrag={(e: DraggableEvent, data: DraggableData) => {
+        const event = e as MouseEvent
+        onDragFn({
+          left: event.movementX + position.left,
+          top: event.movementY + position.top
+        });
+      }}
+    >
+      {children}
+    </DraggableCore>
+  );
+};
