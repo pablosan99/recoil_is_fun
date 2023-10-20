@@ -4,14 +4,14 @@ import { RecoilRoot } from 'recoil';
 import { Box, ChakraProvider, CircularProgress, Tab, TabList, Tabs } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { AtomEffects } from './examples/AtomEffects';
-import { Atoms } from './examples/Atoms';
-import { Selectors } from './examples/Selectors';
-import { Async } from './examples/Async';
-import Transactions from './examples/Transactions';
-import Testing from './examples/Testing';
-import SampleApp from './examples/SampleApp';
-import Start from './examples/Start';
+import { AtomEffects } from './examples/recoil/AtomEffects';
+import { Atoms } from './examples/recoil/Atoms';
+import { Selectors } from './examples/recoil/Selectors';
+import { Async } from './examples/recoil/Async';
+import Transactions from './examples/recoil/Transactions';
+import Testing from './examples/recoil/Testing';
+import SampleApp from './examples/recoil/SampleApp';
+import Start from './examples/recoil/Start';
 
 function Loader() {
   return (

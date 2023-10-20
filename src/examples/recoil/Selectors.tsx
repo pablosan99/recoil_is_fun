@@ -1,18 +1,8 @@
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  Heading,
-  HStack,
-  Icon,
-  NumberInput,
-  NumberInputField,
-  Switch,
-} from '@chakra-ui/react'
+import { Box, FormControl, FormLabel, Heading, HStack, Icon, NumberInput, NumberInputField, Switch, } from '@chakra-ui/react'
 import { ArrowRight } from 'react-feather'
 import { atom, DefaultValue, selector, useRecoilState, useRecoilValue } from 'recoil'
 import { selectedItem } from './Atoms'
-import { FunctionComponent, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 const exchangeRate = 0.8
 

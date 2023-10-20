@@ -1,14 +1,13 @@
 import {Box, Flex} from '@chakra-ui/react'
 import { PropsWithChildren } from 'react';
 
-type PageContainerProps = {
+type Props = {
   onClick: () => void;
 } & PropsWithChildren
 
-export const PageContainer = ({onClick, children}: PageContainerProps) => {
+export const PageContainer = ({onClick, children}: Props) => {
     return (
         <Flex direction="column" onClick={onClick} sx={{
-          border: `1px solid red`,
           margin: `10px`,
           width: `95%`,
           height: `590px`

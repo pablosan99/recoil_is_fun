@@ -1,10 +1,10 @@
-import { Suspense } from "react";
+import React, { Suspense, useRef } from "react";
 import { atom, atomFamily, useRecoilState } from "recoil";
-import { Drag } from "../Drag";
 import { Resize } from "../Resize";
 import { RectangleContainer } from "./RectangleContainer";
 import { RectangleInner } from "./RectangleInner";
 import { RectangleLoading } from "./RectangleLoading";
+import { Drag } from '../Drag';
 
 export type ElementStyle = {
   position: { top: number; left: number };
@@ -17,8 +17,8 @@ export type Element = {
 };
 
 export const defaultStyle = {
-  position: { top: 0, left: 0 },
-  size: { width: 200, height: 200 }
+  position: {top: 200, left: 200},
+  size: {width: 200, height: 200}
 };
 
 export const elementState = atomFamily<Element, number>({
@@ -33,14 +33,18 @@ export const selectedElementState = atom<number | null>({
   default: null
 });
 
-export const Rectangle = ({ id }: { id: number }) => {
+type Props = {
+  id: number;
+}
+
+export const Rectangle = ({id}: Props) => {
   const [element, setElement] = useRecoilState(elementState(id));
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
+  const divRef = useRef<HTMLDivElement | null>(null);
 
   const selected = selectedElement === id;
-  
+
   const handleDrag = (position: ElementStyle["position"]) => {
-    console.log('drag', position);
     setElement({
       ...element,
       style: {
@@ -49,10 +53,14 @@ export const Rectangle = ({ id }: { id: number }) => {
       }
     });
   }
-  
-  const handleResize = (style: ElementStyle) => {
-    console.log('resize', style);
-    setElement({ ...element, style })
+
+  const handleResize = (_element: ElementStyle) => {
+    setElement({
+      ...element,
+      style: {
+        ..._element
+      }
+    })
   }
 
   return (
@@ -67,16 +75,16 @@ export const Rectangle = ({ id }: { id: number }) => {
         selected={selected}
         position={element.style.position}
         size={element.style.size}
-        onResize={handleResize}
+        onResizeFn={handleResize}
         lockAspectRatio={element.image !== undefined}
       >
         <Drag
           position={element.style.position}
           onDragFn={handleDrag}
         >
-          <div>
-            <Suspense fallback={<RectangleLoading selected={selected} />}>
-              <RectangleInner selected={selected} id={id} />
+          <div ref={divRef}>
+            <Suspense fallback={<RectangleLoading selected={selected}/>}>
+              <RectangleInner selected={selected} id={id}/>
             </Suspense>
           </div>
         </Drag>

@@ -21,5 +21,5 @@ export const getRandomImage = () => {
     const id = Date.now();
     const params = new URLSearchParams();
     params.set("seed", `${id}`);
-    return {src: apiUrl('random-image', params), id}
+    return {src: apiUrl('forrest', params), id}
 }

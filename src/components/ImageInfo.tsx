@@ -20,7 +20,7 @@ const imageInfoState = selector({
         if (imageId == null) return
         const params = new URLSearchParams();
         params.set("seed", `${imageId}`);
-        return callApi('image-details', {queryParams: params})
+        return callApi('forrest', {queryParams: params})
     },
 })
 

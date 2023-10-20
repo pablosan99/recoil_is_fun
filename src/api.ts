@@ -5,16 +5,14 @@ type RequestOptions = {
     body?: object | string
 }
 
-export const apiUrl = (lambda: string, queryParams?: URLSearchParams) => {
-    let url = `https://f10adraov8.execute-api.us-east-1.amazonaws.com/dev/${lambda}`
-    if (queryParams) url += '?' + queryParams.toString()
-
+export const apiUrl = (category: string, queryParams?: URLSearchParams) => {
+    let url = `https://api.api-ninjas.com/v1/randomimage?category=${category}`
     return url
 }
 
-export const callApi = async (lambda: string, options?: RequestOptions) => {
+export const callApi = async (category: string, options?: RequestOptions) => {
     const {queryParams, body, method} = options || {}
-    const url = apiUrl(lambda, queryParams)
+    const url = apiUrl(category, queryParams)
 
     let bodyString = body
     if (typeof bodyString === 'object') {

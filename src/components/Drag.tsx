@@ -9,9 +9,11 @@ type DragProps = {
 
 export const Drag = (props: DragProps) => {
   const { position, onDragFn, children } = props;
-  const handleDragStart = (e: DraggableEvent, data: DraggableData) => {};
+  const handleDragStart = (e: DraggableEvent, data: DraggableData) => {
+  };
 
-  const handleDragStop = (e: DraggableEvent, data: DraggableData) => {};
+  const handleDragStop = (e: DraggableEvent, data: DraggableData) => {
+  };
 
   return (
     <DraggableCore
