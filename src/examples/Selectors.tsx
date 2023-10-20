@@ -75,7 +75,7 @@ export const Selectors = () => {
 }
 
 type InputStackProps = PropsWithChildren
-const InputStack: FunctionComponent<InputStackProps> = ({children}: InputStackProps) => {
+const InputStack = ({children}: InputStackProps) => {
     return (
         <HStack
             width="300px"

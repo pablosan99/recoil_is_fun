@@ -12,7 +12,7 @@ export const apiUrl = (lambda: string, queryParams?: URLSearchParams) => {
     return url
 }
 
-export const callApi = (lambda: string, options?: RequestOptions) => {
+export const callApi = async (lambda: string, options?: RequestOptions) => {
     const {queryParams, body, method} = options || {}
     const url = apiUrl(lambda, queryParams)
 

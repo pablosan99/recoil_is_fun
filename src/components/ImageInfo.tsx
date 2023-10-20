@@ -4,7 +4,7 @@ import {selector, useRecoilValue} from 'recoil'
 import {callApi} from '../api'
 import {elementState, selectedElementState} from './Rectangle/Rectangle'
 
-const imageIdState = selector({
+const imageIdState = selector<number|undefined>({
     key: 'imageId',
     get: ({get}) => {
         const id = get(selectedElementState)
