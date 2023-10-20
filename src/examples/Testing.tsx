@@ -24,7 +24,7 @@ export function Form() {
 export default function Testing() {
   return (
     <Box p={4} display="flex" flexDirection="column" alignItems="center" gap={4}>
-      <Image src="/show_me_the_code.jpeg" alt="Show me the code" width={700} height={400}/>
+      <Image src="/assets/show_me_the_code.jpeg" alt="Show me the code" width={700} height={400}/>
       <Box mt={96}>
         <Link to="https://recoiljs.org/docs/guides/testing">https://recoiljs.org/docs/guides/testing</Link>
       </Box>
